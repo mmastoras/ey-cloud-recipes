@@ -5,7 +5,7 @@
 if ['solo', 'app', 'app_master'].include?(node[:instance_role])
  
   # be sure to replace "app_name" with the name of your application.
-  run_for_app(['main_site', 'coney_island']) do |app_name, data|
+  run_for_app('main_site', 'coney_island') do |app_name, data|
   
     worker_name = "delayed_job"
     
