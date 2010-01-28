@@ -9,7 +9,7 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
     
     bash "install-pkg-dependencies" do
       user "root"
-      code "sudo echo 'x11-libs/qt-webkit ~amd64 ~x86' >> /etc/portage/package.keywords/ec2;sudo libqt4-webkit"
+      code "sudo echo 'x11-libs/qt-webkit ~amd64 ~x86' >> /etc/portage/package.keywords/ec2;sudo apt-get libqt4-webkit"
     end
   end
  
