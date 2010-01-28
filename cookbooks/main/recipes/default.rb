@@ -24,3 +24,6 @@ require_recipe "memcached"
 
 #uncomment to run the delayed_job recipe
 require_recipe "delayed_job"
+
+#uncomment to run the wkhtmltopdf recipe
+require_recipe "wkhtmltopdf"
