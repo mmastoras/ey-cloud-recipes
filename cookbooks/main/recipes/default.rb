@@ -23,7 +23,8 @@ require_recipe "memcached"
 #require_recipe "authorized_keys"
 
 #uncomment to run the delayed_job recipe
+#if node[:name] == 'main_site_util' || node[:name] == 'ci_prd_util'
 require_recipe "delayed_job"
 
 #uncomment to run the wkhtmltopdf recipe
-require_recipe "wkhtmltopdf"
+#require_recipe "wkhtmltopdf"
