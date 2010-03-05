@@ -19,7 +19,9 @@ end
 # require_recipe "ultrasphinx"
 
 #uncomment to turn on memcached
+unless node[:name] == 'main_site_util' || node[:name] == 'ci_util'
 require_recipe "memcached"
+end
 
 #uncomment to run the authorized_keys recipe
 #require_recipe "authorized_keys"
