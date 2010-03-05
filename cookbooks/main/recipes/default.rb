@@ -10,8 +10,10 @@ end
 # uncomment to turn use the MBARI ruby patches for decreased memory usage and better thread/continuationi performance
 #require_recipe "mbari-ruby"
 
-# uncomment to turn on thinking sphinx 
+# no thinking sphinx on utility instances
+unless node[:name] == 'main_site_util' || node[:name] == 'ci_util' 
 require_recipe "thinking_sphinx"
+end
 
 # uncomment to turn on ultrasphinx 
 # require_recipe "ultrasphinx"
@@ -23,8 +25,10 @@ require_recipe "memcached"
 #require_recipe "authorized_keys"
 
 #uncomment to run the delayed_job recipe
-#if node[:name] == 'main_site_util' || node[:name] == 'ci_prd_util'
+# delayed job runs only on utility instances or staging evironments
+if node[:name] == 'main_site_util' || node[:name] == 'ci_util' || node[:environment][:framework_env] == 'staging'
 require_recipe "delayed_job"
+end
 
 #uncomment to run the wkhtmltopdf recipe
 #require_recipe "wkhtmltopdf"
