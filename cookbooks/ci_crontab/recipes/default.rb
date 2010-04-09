@@ -3,8 +3,8 @@
 # Recipe:: default
 #
 remote_file "/tmp/pac.crontab" do
-  owner pac
-  group pac
+  owner 'pac'
+  group 'pac'
   mode 0755
   source "crontab"
   backup false
