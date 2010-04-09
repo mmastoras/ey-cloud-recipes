@@ -12,5 +12,5 @@ remote_file "/tmp/pac.crontab" do
 end
 
 execute "setup-ci-crontab" do
-  command "(cat '/tmp/pac.crontab' | uniq | crontab -u #{node[:owner_name]} -"
+  command "(cat '/tmp/pac.crontab'; | uniq | crontab -u #{node[:owner_name]} -"
 end
