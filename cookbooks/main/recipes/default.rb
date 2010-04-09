@@ -32,5 +32,10 @@ if node[:name] == 'main_site_util' || node[:name] == 'ci_util' || node[:environm
 require_recipe "delayed_job"
 end
 
+# setup ci crons 
+if node[:name] == 'ci_util'
+require_recipe "ci_crontab"
+end
+
 #uncomment to run the wkhtmltopdf recipe
 #require_recipe "wkhtmltopdf"
