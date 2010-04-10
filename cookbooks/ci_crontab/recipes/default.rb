@@ -8,7 +8,7 @@ unless node[:instance_role].include?('db')
     owner 'pac'
     group 'pac'
     mode 0755
-    if ['ci_util'].include?(node[:instance_role])
+    if ['utility'].include?(node[:instance_role])
       source "crontab.util"
     elsif ['solo'].include?(node[:instance_role])
       source "crontab.solo"
