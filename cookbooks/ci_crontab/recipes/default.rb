@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-if ['solo', 'app', 'app_master'].include?(node[:instance_role])
+unless node[:instance_role].include?('db')
   remote_file "/tmp/pac.crontab" do
     owner 'pac'
     group 'pac'
