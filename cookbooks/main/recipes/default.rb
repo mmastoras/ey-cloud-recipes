@@ -11,16 +11,16 @@ end
 #require_recipe "mbari-ruby"
 
 # no thinking sphinx on utility instances
-unless node[:name] == 'main_site_util' || node[:name] == 'ci_util' 
-require_recipe "thinking_sphinx"
+unless node[:environment][:name] == 'main_site_util' || node[:environment][:name] == 'ci_util' 
+  require_recipe "thinking_sphinx"
 end
 
 # uncomment to turn on ultrasphinx 
 # require_recipe "ultrasphinx"
 
 #uncomment to turn on memcached
-unless node[:name] == 'main_site_util' || node[:name] == 'ci_util'
-require_recipe "memcached"
+unless node[:environment][:name] == 'main_site_util' || node[:name] == 'ci_util'
+  require_recipe "memcached"
 end
 
 #uncomment to run the authorized_keys recipe
@@ -28,8 +28,8 @@ end
 
 #uncomment to run the delayed_job recipe
 # delayed job runs only on utility instances or staging evironments
-if node[:name] == 'main_site_util' || node[:name] == 'ci_util' || node[:environment][:framework_env] == 'staging'
-require_recipe "delayed_job"
+if node[:environment][:name] == 'main_site_util' || node[:environment][:name] == 'ci_util' || node[:environment][:framework_env] == 'staging'
+  require_recipe "delayed_job"
 end
 
 # setup crons on CI only
@@ -38,7 +38,7 @@ if node[:environment][:name].include?('ci_')
 end
 
 # custom nginx conf for ci_staging only
-if node[:name] == 'ci_staging' 
+if node[:environment][:name] == 'ci_staging' 
   require_recipe "nginx"
 end
 
