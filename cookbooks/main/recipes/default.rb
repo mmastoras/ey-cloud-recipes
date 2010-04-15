@@ -10,8 +10,9 @@ end
 # uncomment to turn use the MBARI ruby patches for decreased memory usage and better thread/continuationi performance
 #require_recipe "mbari-ruby"
 
+# node[:name] only exists for multi-instance enviroments (ie. production environments)
 # no thinking sphinx on utility instances
-unless node[:environment][:name] == 'main_site_util' || node[:environment][:name] == 'ci_util' 
+unless node[:name] == 'main_site_util' || node[:name] == 'ci_util' 
   require_recipe "thinking_sphinx"
 end
 
@@ -19,7 +20,7 @@ end
 # require_recipe "ultrasphinx"
 
 #uncomment to turn on memcached
-unless node[:environment][:name] == 'main_site_util' || node[:name] == 'ci_util'
+unless node[:name] == 'main_site_util' || node[:name] == 'ci_util'
   require_recipe "memcached"
 end
 
@@ -28,7 +29,7 @@ end
 
 #uncomment to run the delayed_job recipe
 # delayed job runs only on utility instances or staging evironments
-if node[:environment][:name] == 'main_site_util' || node[:environment][:name] == 'ci_util' || node[:environment][:framework_env] == 'staging'
+if node[:name] == 'main_site_util' || node[:name] == 'ci_util' || node[:environment][:framework_env] == 'staging'
   require_recipe "delayed_job"
 end
 
