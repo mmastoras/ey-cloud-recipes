@@ -37,5 +37,10 @@ if node[:environment][:name].include?('ci_')
   require_recipe "ci_crontab"
 end
 
+# custom nginx conf for ci_staging only
+if node[:name] == 'ci_staging' 
+  require_recipe "nginx"
+end
+
 #uncomment to run the wkhtmltopdf recipe
 #require_recipe "wkhtmltopdf"
