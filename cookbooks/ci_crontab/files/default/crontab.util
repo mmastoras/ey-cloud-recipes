@@ -4,3 +4,5 @@
 30 11 * * 6 cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:weekly >> /data/coney_island/current/log/weekly.log 2>&1
 # daily
 0 12 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:daily >> /data/coney_island/current/log/daily.log 2>&1
+# daily - usage report
+0 11 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> stats:daily_stats > /data/coney_island/current/log/daily.log 2>&1
