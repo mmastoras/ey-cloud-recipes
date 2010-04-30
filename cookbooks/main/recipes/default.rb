@@ -28,8 +28,8 @@ end
 #require_recipe "authorized_keys"
 
 #uncomment to run the delayed_job recipe
-# delayed job runs only on utility instances or staging evironments
-if node[:name] == 'main_site_util' || node[:name] == 'ci_util' || node[:environment][:framework_env] == 'staging'
+# delayed job runs only on utility instances or staging/demo evironments
+if node[:name] == 'main_site_util' || node[:name] == 'ci_util' || node[:environment][:framework_env] == 'staging' || node[:environment][:framework_env] == 'demo'
   require_recipe "delayed_job"
 end
 
@@ -41,6 +41,10 @@ end
 # custom nginx conf for ci_staging only
 if node[:environment][:name] == 'ci_staging' 
   require_recipe "nginx"
+end
+
+if node[:name].include?('ci_')
+  require_recipe "custom_gem_install" # run any gem install not handled via vendorization and rake gems:build
 end
 
 #uncomment to run the wkhtmltopdf recipe
