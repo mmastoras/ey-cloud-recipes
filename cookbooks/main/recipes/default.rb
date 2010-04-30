@@ -43,7 +43,7 @@ if node[:environment][:name] == 'ci_staging'
   require_recipe "nginx"
 end
 
-if node[:name].include?('ci_')
+if node[:environment][:name].include?('ci_')
   require_recipe "custom_gem_install" # run any gem install not handled via vendorization and rake gems:build
 end
 
