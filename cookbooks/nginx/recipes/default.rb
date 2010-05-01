@@ -19,3 +19,7 @@ remote_file "/etc/nginx/servers/coney_island.conf" do
   backup false
   action :create
 end
+
+execute "restart-nginx" do
+  command "/etc/init.d/nginx restart"
+end
