@@ -11,11 +11,11 @@ remote_file "/etc/nginx/servers/coney_island.users" do
   action :create
 end
 
-remote_file "/etc/nginx/servers/coney_island.conf" do
+remote_file "/etc/nginx/servers/coney_island.ssl.conf" do
   owner 'pac'
   group 'pac'
   mode 0755
-  source "coney_island.conf"
+  source "coney_island.ssl.conf"
   backup false
   action :create
 end
