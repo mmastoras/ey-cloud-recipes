@@ -39,7 +39,7 @@ if node[:environment][:name].include?('ci_')
 end
 
 # custom nginx conf for ci_staging only
-if node[:environment][:name] == 'ci_staging' 
+if node[:environment][:name] == 'ci_staging' || node[:environment][:name] == 'ci_production' || node[:environment][:name] == 'ci_demo' 
   require_recipe "nginx"
 end
 
