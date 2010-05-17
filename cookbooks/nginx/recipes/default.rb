@@ -15,7 +15,6 @@ if node[:environment][:framework_env] == 'staging'
 end
 
 if node[:environment][:framework_env] == 'staging'
-  puts "uploading new coney_island.conf file"
   remote_file "/etc/nginx/servers/coney_island.conf" do
     owner 'pac'
     group 'pac'
@@ -33,7 +32,7 @@ if node[:environment][:framework_env] == 'staging'
     backup false
     action :create
   end
-elsif node[:environment][:framework_environment] == 'production'
+elsif node[:environment][:framework_env] == 'production'
   puts "uploading new coney_island.conf file"
   remote_file "/etc/nginx/servers/coney_island.conf" do
     owner 'pac'
@@ -52,7 +51,7 @@ elsif node[:environment][:framework_environment] == 'production'
     backup false
     action :create
   end
-elsif node[:environment][:framework_environment] == 'demo'
+elsif node[:environment][:framework_env] == 'demo'
   remote_file "/etc/nginx/servers/coney_island.conf" do
     owner 'pac'
     group 'pac'
