@@ -33,7 +33,6 @@ if node[:environment][:framework_env] == 'staging'
     action :create
   end
 elsif node[:environment][:framework_env] == 'production'
-  puts "uploading new coney_island.conf file"
   remote_file "/etc/nginx/servers/coney_island.conf" do
     owner 'pac'
     group 'pac'
