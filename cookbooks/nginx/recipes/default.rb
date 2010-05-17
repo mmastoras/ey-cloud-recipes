@@ -14,6 +14,7 @@ if node[:environment][:framework_env] == 'staging'
 end
 
 if node[:environment][:framework_env] == 'staging'
+  puts "uploading new coney_island.conf file"
   remote_file "/etc/nginx/servers/coney_island.conf" do
     owner 'pac'
     group 'pac'
