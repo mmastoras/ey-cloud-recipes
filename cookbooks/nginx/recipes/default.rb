@@ -2,7 +2,7 @@
 # Cookbook Name:: nginx
 # Recipe:: default
 #
-puts "nginx recipe running on environment => #{node[:environment][:framework_env]}"
+puts "nginx recipe running on instance => #{node[:instance_role]} environment => #{node[:environment][:framework_env]}"
 if node[:environment][:framework_env] == 'staging'
   remote_file "/etc/nginx/servers/coney_island.users" do
     owner 'pac'
