@@ -7,4 +7,4 @@
 # daily - activity report
 31 11 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> stats:daily_activity > /data/coney_island/current/log/daily_activity_report.log 2>&1
 # weekly - activity report
-41 11 * * 6 cd /data/coney_island/current;rake RAILS_ENV=<environment> stats:interval_activity MAIL_TO=cmarkesky@paclabs.com > /data/coney_island/current/log/weekly_activity_report.log 2>&1
+41 11 * * 0 cd /data/coney_island/current;rake RAILS_ENV=<environment> stats:interval_activity MAIL_TO=cmarkesky@paclabs.com > /data/coney_island/current/log/weekly_activity_report.log 2>&1
