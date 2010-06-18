@@ -1,10 +1,10 @@
 # hourly
-15 * * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:hourly >> /data/coney_island/current/log/hourly.log 2>&1
+5 * * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:hourly >> /data/coney_island/current/log/hourly.log 2>&1
 # weekly
-30 11 * * 6 cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:weekly >> /data/coney_island/current/log/weekly.log 2>&1
+30 14 * * 6 cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:weekly >> /data/coney_island/current/log/weekly.log 2>&1
 # daily
-0 12 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:daily >> /data/coney_island/current/log/daily.log 2>&1
+20 12 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:daily >> /data/coney_island/current/log/daily.log 2>&1
 # daily - activity report
 31 11 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> stats:daily_activity > /data/coney_island/current/log/daily_activity_report.log 2>&1
 # weekly - activity report
-41 11 * * 0 cd /data/coney_island/current;rake RAILS_ENV=<environment> stats:interval_activity MAIL_TO=cmarkesky@paclabs.com > /data/coney_island/current/log/weekly_activity_report.log 2>&1
+41 11 * * 0 cd /data/coney_island/current;rake RAILS_ENV=<environment> stats:interval_activity MAIL_TO=cmarkesky@paclabs.com,mmastoras@paclabs.com > /data/coney_island/current/log/weekly_activity_report.log 2>&1

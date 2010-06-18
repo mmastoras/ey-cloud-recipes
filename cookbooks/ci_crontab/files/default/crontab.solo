@@ -1,9 +1,10 @@
 # hourly
-15 * * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:hourly >> /data/coney_island/current/log/hourly.log 2>&1
+5 * * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:hourly >> /data/coney_island/current/log/hourly.log 2>&1
+# sphinx reindex
 20 * * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> thinking_sphinx:reindex >> /data/coney_island/current/log/hourly_sphinx_reindex.log 2>&1
 # weekly
-30 11 * * 6 cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:weekly >> /data/coney_island/current/log/weekly.log 2>&1
+30 14 * * 6 cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:weekly >> /data/coney_island/current/log/weekly.log 2>&1
 # daily
-0 12 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:daily >> /data/coney_island/current/log/daily.log 2>&1
+20 12 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> scheduled_tasks:daily >> /data/coney_island/current/log/daily.log 2>&1
 # clear memcache daily
-15 10 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> memcache:clear >> /data/coney_island/current/log/memcache_clear.log 2>&1
+0 13 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> memcache:clear >> /data/coney_island/current/log/memcache_clear.log 2>&1
