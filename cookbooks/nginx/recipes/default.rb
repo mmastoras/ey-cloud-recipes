@@ -61,6 +61,16 @@ elsif node[:environment][:framework_env] == 'demo'
   end
 end
 
+# rewrite rules for all web apps
+remote_file "/etc/nginx/servers/coney_island.rewrites" do
+  owner 'pac'
+  group 'pac'
+  mode 0755
+  source "coney_island.rewrites.conf"
+  backup false
+  action :create
+end
+
 execute "restart-nginx" do
   command "/etc/init.d/nginx restart"
 end
