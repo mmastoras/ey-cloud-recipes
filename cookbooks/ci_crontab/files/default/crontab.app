@@ -5,4 +5,4 @@
 # build sitemap daily
 30 9 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> admin:build_sitemap >> /data/coney_island/current/log/build_sitemap.log 2>&1
 # sweep home page every 30 minutes
-0,30 * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> sweeper:every_30 >> /data/coney_island/current/log/sweeper.log 2>&1
+0,30 * * * * cd /data/coney_island/current;rake RAILS_ENV=<environment> sweeper:every_30 >> /data/coney_island/current/log/sweeper.log 2>&1
