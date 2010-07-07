@@ -33,14 +33,15 @@ if node[:name] == 'main_site_util' || node[:name] == 'ci_util' || node[:environm
   require_recipe "delayed_job"
 end
 
-# setup crons on CI only
+# setup crons on gild
 if node[:environment][:name].include?('ci_')
   require_recipe "ci_crontab"
 end
 
-#if node[:environment][:name].include?('main_site')
-#  require_recipe 'dallas_crontab'
-#end
+# setup crons on dallas
+if node[:environment][:name].include?('main_site')
+  require_recipe 'dallas_crontab'
+end
 
 # custom nginx conf
 if node[:environment][:name] == 'ci_staging' || node[:environment][:name] == 'ci_demo' || 

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ci_crontab
+# Cookbook Name:: dallas_crontab
 # Recipe:: default
 #
 
