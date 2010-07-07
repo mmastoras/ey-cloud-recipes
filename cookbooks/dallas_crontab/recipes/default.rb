@@ -5,8 +5,8 @@
 
 unless node[:instance_role].include?('db')
   remote_file "/tmp/pac.crontab" do
-    owner 'pac'
-    group 'pac'
+    owner 'deploy'
+    group 'deploy'
     mode 0755
     if ['util'].include?(node[:instance_role])
       source "crontab.util"
