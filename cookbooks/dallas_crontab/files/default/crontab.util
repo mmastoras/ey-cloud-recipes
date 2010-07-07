@@ -1,0 +1,10 @@
+SHELL=/bin/bash
+#PATH=/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/home/mongrel/bin
+MAILTO="dev@gild.com"
+# daily
+10 12 * * * /data/main_site/current/script/daily >/dev/null
+#0 11 * * 1,2,3,4,5 /data/proaptitude/current/script/mysqlreport
+# hourly
+17 * * * * /data/main_site/current/script/hourly >/dev/null
+# what is this ?
+#3 * * * * /usr/bin/curl https://pacprod:Adm1npac749@pac.aandm.biz/Director.asmx?op=RequestPDFLink -s >/dev/null
