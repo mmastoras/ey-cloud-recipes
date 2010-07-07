@@ -4,7 +4,7 @@
 #
 
 unless node[:instance_role].include?('db')
-  remote_file "/tmp/pac.crontab" do
+  remote_file "/tmp/deploy.crontab" do
     owner 'deploy'
     group 'deploy'
     mode 0755
@@ -20,7 +20,7 @@ unless node[:instance_role].include?('db')
   end
 
   execute "setup-crontab" do
-    command "cat '/tmp/pac.crontab' | sed 's/<environment>/#{node[:environment][:framework_env]}/' | crontab -u #{node[:owner_name]} -"
+    command "cat '/tmp/deploy.crontab' | sed 's/<environment>/#{node[:environment][:framework_env]}/' | crontab -u #{node[:owner_name]} -"
   end
 end
 
