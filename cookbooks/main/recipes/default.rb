@@ -38,6 +38,10 @@ if node[:environment][:name].include?('ci_')
   require_recipe "ci_crontab"
 end
 
+if node[:environment][:name].include?('main_site')
+  require_recipe 'dallas_crontab'
+end
+
 # custom nginx conf
 if node[:environment][:name] == 'ci_staging' || node[:environment][:name] == 'ci_demo' || 
     (node[:environment][:name] == 'ci_production' && node[:instance_role].include?('app'))
