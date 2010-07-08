@@ -3,6 +3,10 @@
 # Recipe:: default
 #
 
+ey_cloud_report "dallas_crontab" do
+  message "installing dallas crontab"
+end
+
 unless node[:instance_role].include?('db')
   remote_file "/tmp/deploy.crontab" do
     owner 'deploy'

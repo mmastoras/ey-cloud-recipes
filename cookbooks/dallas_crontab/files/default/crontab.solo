@@ -1,2 +1,7 @@
+# daily
+10 12 * * * cd /data/main_site/current;rake RAILS_ENV=<environment> scheduled_tasks:daily >> /data/main_site/current/log/daily.log 2>&1
+#0 11 * * 1,2,3,4,5 /data/proaptitude/current/script/mysqlreport
+# hourly
+17 * * * * cd /data/main_site/current;rake RAILS_ENV=<environment> scheduled_tasks:hourly >> /data/main_site/current/log/hourly.log 2>&1
 # clear memcache daily
-0 13 * * * cd /data/main_site/current;rake RAILS_ENV=<environment> memcache:clear >> /data/coney_island/current/log/memcache_clear.log 2>&1
+0 13 * * * cd /data/main_site/current;rake RAILS_ENV=<environment> memcache:clear >> /data/main_site/current/log/memcache_clear.log 2>&1
